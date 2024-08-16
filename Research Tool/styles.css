@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: 6482AD;
+}
+
+.navbar {
+  padding: 20px; /* Ensure consistent padding with the form area */
+  margin-bottom: 20px; /* Space between navbar and content below */
+}
+
+.navbar-brand {
+  margin-left: 20px; /* Align with the left padding of the form */
+}
+
+.container {
+  padding-left: 20px; /* Align with the navbar brand */
+  padding-right: 20px; /* Align with the form and chat area */
+}
+
+.form-container {
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-container {
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 500px; /* Adjust height as needed */
+  max-width: 100%;
+}
+
+.chat-box {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  max-width: 70%;
+}
+
+.user-message {
+  background-color: #0084ff;
+  color: white;
+  align-self: flex-end;
+}
+
+.bot-message {
+  background-color: #e4e6eb;
+  color: black;
+  align-self: flex-start;
+}
+
+.input-area {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  padding: 8px;
+  background-color: #fff;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+}
+
+input[type="file"] {
+  margin-right: 8px;
+}
+
+input:focus {
+  border-color: #0084ff;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  background-color: #0084ff;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 8px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+.profile-img {
+  width: 40px; /* Adjust the size as needed */
+  height: 40px;
+  border-radius: 50%; /* Makes the image round */
+  object-fit: cover; /* Ensures the image covers the container */
+  margin-left: 15px; /* Space between image and navbar items */
+}
+
+.navbar-nav .nav-item {
+  margin-right: 15px; /* Optional: space between navbar items */
+}
+
+/* styles.css */
+
+.form-container {
+  margin-bottom: 20px; /* Space between form and chat history */
+}
+
+.chat-history {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+#chat-history-box {
+  max-height: 300px; /* Adjust height as needed */
+  overflow-y: auto;
+  border-top: 1px solid #ddd;
+}
+
+.chat-history h5 {
+  margin-bottom: 16px; /* Space between title and chat history */
+}
+
+/* Ensure messages are positioned relative to their container */
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  max-width: 70%;
+  position: relative; /* Needed for the absolute positioning of the messages */
+}
+
+/* User messages aligned to the right side */
+.user-message {
+  background-color: #0084ff;
+  color: white;
+  align-self: flex-end; /* Align user messages to the right */
+  text-align: right; /* Ensure text aligns right */
+  margin-left: auto; /* Push message to the right side */
+}
+
+/* Bot messages aligned to the left side */
+.bot-message {
+  background-color: #e4e6eb;
+  color: black;
+  align-self: flex-start; /* Align bot messages to the left */
+  text-align: left; /* Ensure text aligns left */
+  margin-right: auto; /* Push message to the left side */
+}
+
+/* Add styling if needed for the new chat button */
+#new-chat-btn {
+  margin-right: 15px; /* Ensure space between button and profile image */
+}
+/* Optional: Style for the clear chat history button */
+#clear-chat-btn {
+  margin-left: 10px;
+}
+.form-container .d-flex {
+  align-items: center;
+}
+
+.form-container #file-input {
+  flex: 1; /* Ensure the file input takes available space */
+}
+
+.form-container #submit-urls {
+  white-space: nowrap; /* Prevent text wrapping if the button text is long */
+}
