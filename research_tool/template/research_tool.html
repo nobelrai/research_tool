@@ -1,36 +1,37 @@
-{% extends 'base.html'%} {% load static %} {% block myblock %}
+{% extends 'base.html' %} {% load static %} {% block myblock %}
 <div class="container mt-10">
   <div class="row">
     <div class="col-md-3">
-      <div class="form-container background-color: #cde8e5;">
-        <div class="mb-2">
-          <input
-            type="url"
-            class="form-control"
-            id="urlInput1"
-            placeholder="Enter URL"
-          />
+      <div class="form-container">
+        <div id="additional-url-inputs" class="input-stack">
+          <div class="mb-2">
+            <input
+              type="url"
+              class="form-control"
+              id="urlInput1"
+              placeholder="Enter URL"
+            />
+          </div>
         </div>
-        <div class="mb-3">
-          <input
-            type="url"
-            class="form-control"
-            id="urlInput2"
-            placeholder="Enter URL "
-          />
-        </div>
-        <div
-          class="input-area d-flex align-items-center mt-3 background-color: #4d869c"
-        >
-          <!-- File input hidden -->
-          <input type="file" id="file-input" class="d-none" />
+        <button id="add-url-btn" class="btn btn-secondary mt-2">
+          Add Another URL
+        </button>
 
-          <!-- Paperclip icon button -->
-          <button id="file-input-btn" class="btn btn-light me-2">
-            <i class="bi bi-paperclip"></i>
-          </button>
+        <div class="input-area d-flex align-items-center mt-3">
+          <input type="file" id="file-input" class="input-stack mt-3" />
         </div>
+
+        <div id="additional-file-inputs" class="input-stack mt-3">
+          <!-- Additional file inputs will be added here -->
+        </div>
+        <button id="add-file-btn" class="btn btn-secondary mt-2">
+          Add File
+        </button>
+
+        <!-- Send Button -->
+        <button id="send-btn" class="btn btn-primary mt-3">Send</button>
       </div>
+
       <!-- Chat History Section -->
       <div class="chat-history">
         <h5>Chat History</h5>
@@ -41,20 +42,16 @@
     </div>
 
     <div class="col-md-9">
-      <div class="chat-container background-color: #4d869c">
+      <div class="chat-container">
         <div class="chat-box" id="chat-box">
-          <!-- Chat messages will be appended here -->
+          {% for prompt in promts %} {{promt.textarea}}{% endfor %}
         </div>
-        <div
-          class="input-area d-flex align-items-center mt-3 background-color: #4d869c"
-        >
+        <div class="input-area d-flex align-items-center mt-3">
           <textarea
             id="user-input"
             placeholder="Type your message here..."
           ></textarea>
-          <button id="send-btn" class="btn btn-primary color: #4d869c">
-            Send
-          </button>
+          <!-- <button id="send-btn" class="btn btn-primary">Send</button> -->
         </div>
       </div>
     </div>

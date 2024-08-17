@@ -134,7 +134,7 @@ document.getElementById('send-btn').addEventListener('click', function() {
         
         // Simulate a response from the bot
         setTimeout(() => {
-            const botResponse = 'This is a simulated response from the bot!mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm';
+            const botResponse = 'This is a simulated response from the bot!';
             appendMessage(botResponse, 'bot-message');
             saveMessage(botResponse, 'bot-message');
         }, 500);
@@ -156,6 +156,117 @@ window.onload = function() {
     document.getElementById('user-input').value = '';
 };
 
-document.getElementById('file-input-btn').addEventListener('click', function() {
-    document.getElementById('file-input').click();
-  });  
+
+// Event listener for adding URL fields
+document.getElementById('add-url-btn').addEventListener('click', function() {
+    const additionalInputsDiv = document.getElementById('additional-url-inputs');
+    const newInput = document.createElement('input');
+    newInput.type = 'url';
+    newInput.className = 'form-control mt-2';
+    newInput.placeholder = 'Enter URL';
+    additionalInputsDiv.appendChild(newInput);
+});
+
+// Event listener for adding URL fields
+document.getElementById('add-url-btn').addEventListener('click', function() {
+    const additionalInputsDiv = document.getElementById('additional-url-inputs');
+    const newInput = document.createElement('div');
+    newInput.className = 'mb-2';
+    newInput.innerHTML = `
+        <input type="url" class="form-control mt-2" placeholder="Enter URL" />
+    `;
+    // Insert the new URL input above the "Add Another URL" button
+    additionalInputsDiv.insertBefore(newInput, document.getElementById('add-url-btn'));
+});
+
+// Event listener for adding file inputs
+document.getElementById('add-file-btn').addEventListener('click', function() {
+    const additionalFileInputsDiv = document.getElementById('additional-file-inputs');
+    const fileInputDiv = document.createElement('div');
+    fileInputDiv.className = 'file-input-container mb-2';
+
+    const newFileInput = document.createElement('input');
+    newFileInput.type = 'file';
+    newFileInput.className = 'd-none';
+    fileInputDiv.appendChild(newFileInput);
+
+    const chooseFileButton = document.createElement('button');
+    chooseFileButton.className = 'btn btn-secondary';
+    chooseFileButton.textContent = 'Choose File';
+    chooseFileButton.addEventListener('click', function() {
+        newFileInput.click(); // Trigger file input click
+    });
+    fileInputDiv.appendChild(chooseFileButton);
+
+    // Insert the new file input section above the "Add File" button
+    additionalFileInputsDiv.insertBefore(fileInputDiv, document.getElementById('add-file-btn'));
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const urlInputContainer = document.getElementById('additional-url-inputs');
+  const fileInputContainer = document.getElementById('additional-file-inputs');
+  const chatBox = document.getElementById('chat-box');
+
+  // Function to handle adding new URL input field
+  document.getElementById('add-url-btn').addEventListener('click', function() {
+    const existingInputs = urlInputContainer.querySelectorAll('input[type="url"]');
+    
+    // Only add a new input field if there's no existing field
+    if (existingInputs.length === 0) {
+      const newInput = document.createElement('div');
+      newInput.classList.add('mb-2');
+      newInput.innerHTML = '<input type="url" class="form-control" placeholder="Enter URL" />';
+      urlInputContainer.appendChild(newInput);
+    }
+  });
+
+  // Function to handle adding new file input field
+  document.getElementById('add-file-btn').addEventListener('click', function() {
+    const newInput = document.createElement('div');
+    newInput.classList.add('file-input-container');
+    newInput.innerHTML = '<input type="file" class="form-control" />';
+    fileInputContainer.appendChild(newInput);
+  });
+
+  // Function to handle sending URLs and files to chat area
+  document.getElementById('send-btn').addEventListener('click', function() {
+    const urlInputs = urlInputContainer.querySelectorAll('input[type="url"]');
+    const fileInputs = fileInputContainer.querySelectorAll('input[type="file"]');
+    let messageContent = '';
+
+    // Process URLs
+    urlInputs.forEach(input => {
+      const urlValue = input.value;
+      if (urlValue) {
+        messageContent += `<p>URL: <a href="${urlValue}" target="_blank">${urlValue}</a></p>`;
+      }
+    });
+
+    // Process Files
+    fileInputs.forEach(input => {
+      const fileList = input.files;
+      if (fileList.length > 0) {
+        for (let i = 0; i < fileList.length; i++) {
+          const file = fileList[i];
+          messageContent += `<p>File: ${file.name}</p>`;
+        }
+      }
+    });
+
+    if (messageContent) {
+      // Create and append chat message
+      const message = document.createElement('div');
+      message.classList.add('message');
+      message.classList.add('user-message'); // Add class for user message styling
+      message.innerHTML = messageContent;
+      chatBox.appendChild(message);
+
+      // Optionally, clear inputs after sending
+      urlInputs.forEach(input => input.value = '');
+      fileInputs.forEach(input => input.value = '');
+    }
+  });
+});
+
+  
+

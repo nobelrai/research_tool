@@ -250,7 +250,7 @@ textarea {
   background-color: #2c2c2c; /* Darker background for input area */
 }
 
-#file-input-btn {
+/* #file-input-btn {
   background-color: #2c2c2c; /* Darker background for button */
   border: none;
   padding: 8px;
@@ -261,4 +261,54 @@ textarea {
 
 #file-input-btn:hover {
   background-color: #444; /* Slightly lighter background on hover */
+} */
+
+/* Add styles for new URL input fields and file upload buttons */
+.file-input-container {
+  margin-bottom: 10px; /* Space between file input containers */
+}
+
+.file-input-container button {
+  background-color: #0056b3; /* Darker background color for button */
+  color: #e0e0e0; /* Light text color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.file-input-container button:hover {
+  background-color: #004494; /* Darker background on hover */
+}
+
+#add-url-btn,
+#add-file-btn {
+  background-color: #0056b3; /* Darker background color for button */
+  color: #e0e0e0; /* Light text color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+#add-url-btn:hover,
+#add-file-btn:hover {
+  background-color: #004494; /* Darker background on hover */
+}
+
+#additional-url-inputs {
+  margin-top: 10px; /* Space between URL input fields */
+}
+
+#additional-url-inputs input {
+  margin-top: 5px; /* Space between additional URL inputs */
+}
+
+.input-stack {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.file-input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.file-input-container button {
+  margin-left: 1rem;
 }
