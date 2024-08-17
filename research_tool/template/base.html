@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <title>Neo Tool</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg background-color: #4d869c;">
+      <div class="container-fluid">
+        <a class="navbar-brand" style="color: #eef7ff" href="#">Neo Tool</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <button id="clear-chat-btn" class="btn btn-danger">
+          Clear Chat History
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-5 mb-lg-0"></ul>
+          <div class="d-flex align-items-center">
+            <button id="new-chat-btn" class="btn btn-secondary me-3">
+              New Chat
+            </button>
+            <img
+              src="{% static 'img/pp.jpg' %}"
+              alt="Profile Image"
+              class="profile-img"
+            />
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    {% block myblock %} {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>
