@@ -34,17 +34,26 @@
         <button id="clear-chat-btn" class="btn btn-danger">
           Clear Chat History
         </button>
+        <div class="dropdown-menu m-0">
+          <a href="{% url 'logout' %}" class="dropdown-item">Log Out</a>
+        </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-5 mb-lg-0"></ul>
           <div class="d-flex align-items-center">
             <button id="new-chat-btn" class="btn btn-secondary me-3">
               New Chat
             </button>
-            <img
-              src="{% static 'img/pp.jpg' %}"
-              alt="Profile Image"
-              class="profile-img"
-            />
+            <div class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                >{{ request.user }}</a
+              >
+              <div class="dropdown-menu m-0">
+                <a href="{% url 'logout' %}" class="dropdown-item">Log Out</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
